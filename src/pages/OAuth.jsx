@@ -16,14 +16,14 @@ const OAuth = () => {
   
       setTimeout(() => {
         if(popup) popup.close();
-        alert("✅ Simulacro: Google verificó tu identidad y nos devolvió un 'Authorization Code'.\n\nAhora el backend intercambiaría este código por un token.");
+        alert("✅ Simulation: Google verified your identity and returned a 'Authorization Code'.\n\nNow the backend would exchange this code for a token.");
       }, 2000);
     };
   
     return (
       <div>
         <h2>OAuth 2.0 Flow</h2>
-        <p>Haga clic para iniciar el flujo de 'Consent Screen' de Google.</p>
+        <p>Click to start the 'Consent Screen' flow with Google.</p>
         <button 
           onClick={handleGoogle}
           style={{background: 'white', color:'#444', display: 'flex', alignItems: 'center', gap: '10px', margin: 'auto'}}

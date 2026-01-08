@@ -27,7 +27,7 @@ function App() {
         <Route
           path="/"
           element={
-            <h3>Selecciona un tema del menú para ver la demostración.</h3>
+            <h3>Select a topic from the menu to view the demo. </h3>
           }
         />
         <Route path="/jamstack" element={<Jamstack />} />

@@ -1,20 +1,20 @@
 import { useEffect, useState } from 'react';
 
 const Jamstack = () => {
-  const [usuarios, setUsuarios] = useState([]);
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(res => res.json())
-      .then(data => setUsuarios(data));
+      .then(data => setUsers(data));
   }, []);
 
   return (
     <div>
-      <h2>Tema 1: JamStack</h2>
-      <p>Este contenido es estático (HTML) y se hidrata con una API externa.</p>
+      <h2>Topic 1: JamStack</h2>
+      <p>This content is static (HTML) and hydrated with an external API.</p>
       <ul>
-        {usuarios.map(u => <li key={u.id}>{u.name}</li>)}
+        {users.map(u => <li key={u.id}>{u.name}</li>)}
       </ul>
     </div>
   );

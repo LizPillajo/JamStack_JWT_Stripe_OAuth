@@ -1,22 +1,22 @@
 import { useState } from 'react';
 
 const Stripe = () => {
-  const [status, setStatus] = useState('Esperando...');
+  const [status, setStatus] = useState('Loading...');
 
-  const pagar = () => {
-    setStatus('Procesando con Stripe (Tokenizando tarjeta)...');
+  const pay = () => {
+    setStatus('Processing with Stripe (Tokenizing card)...');
     setTimeout(() => {
-      setStatus('¡Pago Exitoso! El servidor recibió un ID seguro, no la tarjeta.');
+      setStatus('Payment Successful! The server received a secure ID, not the card.');
     }, 2000);
   };
 
   return (
     <div>
-      <h2>Tema 4: Pasarelas (Stripe)</h2>
+      <h2>Topic 4: Payment gateways (Stripe)</h2>
       <div style={{border:'1px solid #ddd', padding:'10px'}}>
         <p>Total: $50.00</p>
-        <button onClick={pagar}>Pagar Ahora</button>
-        <p><strong>Estado:</strong> {status}</p>
+        <button onClick={pay}>Pay Now</button>
+        <p><strong>Status:</strong> {status}</p>
       </div>
     </div>
   );
