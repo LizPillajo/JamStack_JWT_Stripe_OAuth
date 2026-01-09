@@ -1,16 +1,43 @@
-# React + Vite
+# Laboratorio de Conceptos Web Modernos
+### Programación Web - Universidad Central del Ecuador (UCE)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es una aplicación desarrollada en **Vite + React** que demuestra la implementación práctica y teórica de arquitecturas web modernas.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologías y Conceptos Abordados
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+El proyecto implementa una navegación SPA (Single Page Application) para demostrar los siguientes módulos:
 
-## React Compiler
+1.  **JWT (JSON Web Token):**
+    * Simulación de generación de tokens (Header, Payload, Signature).
+    * Implementación de flujo de Autenticación y Autorización.
+    * Manejo de **Refresh Tokens** y expiración de sesión.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+2.  **OAuth 2.0:**
+    * Implementación del flujo de "Consent Screen" simulado con Google.
+    * Demostración de delegación de autenticación.
 
-## Expanding the ESLint configuration
+3.  **Headless CMS & BaaS (Jamstack):**
+    * Conceptos de desacople Frontend/Backend.
+    * Consumo de APIs externas (simulando **Strapi** o **Firebase**) usando `fetch`.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+4.  **Pasarelas de Pago (Stripe):**
+    * Simulación del flujo de tokenización de tarjetas (PCI Compliance).
+    * Comunicación asíncrona cliente-pasarela.
+
+## 🛠️ Instalación y Ejecución
+
+1.  Clonar el repositorio:
+    git clone https://github.com/LizPillajo/JamStack_JWT_Stripe_OAuth.git
+
+2.  Instalar dependencias:
+    npm install
+
+3.  Correr el servidor de desarrollo:
+    npm run dev
+
+
+## 📂 Estructura del Proyecto
+
+El código está organizado modularmente:
+* `/src/pages`: Contiene los componentes de cada ejercicio (Jwt.jsx, OAuth.jsx, etc.).
+* `/src/App.jsx`: Manejo de rutas y navegación.
