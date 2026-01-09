@@ -1,37 +1,62 @@
+import { useState } from 'react';
+import { initializeApp } from "firebase/app";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCE4gqUrUFT1Q1aJlysV4VOnOhUYpa2x3U",
+  authDomain: "web-programming-practice-5c962.firebaseapp.com",
+  projectId: "web-programming-practice-5c962",
+  storageBucket: "web-programming-practice-5c962.firebasestorage.app",
+  messagingSenderId: "1086496782344",
+  appId: "1:1086496782344:web:bb34938288adb86cf179bd",
+  measurementId: "G-GC4T3WNNM1"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+
 const OAuth = () => {
-    const handleGoogle = () => {
+  const [user, setUser] = useState(null);
 
-      const googleAuthUrl = "https://accounts.google.com/o/oauth2/v2/auth?client_id=TU_CLIENT_ID&redirect_uri=TU_SITIO&response_type=code&scope=email";
+  const handleGoogleLogin = async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      setUser(result.user);
+    } catch (error) {
+      console.error(error);
+      alert("Error logging in: " + error.message);
+    }
+  };
 
-      const width = 500;
-      const height = 600;
-      const left = (window.innerWidth - width) / 2;
-      const top = (window.innerHeight - height) / 2;
+  const handleLogout = () => {
+    signOut(auth);
+    setUser(null);
+  }
+
+  return (
+    <div>
+      <h2>OAuth 2.0 (Firebase)</h2>
       
-      const popup = window.open(
-        googleAuthUrl, 
-        "Google Auth", 
-        `width=${width},height=${height},top=${top},left=${left}`
-      );
-  
-      setTimeout(() => {
-        if(popup) popup.close();
-        alert("✅ Simulation: Google verified your identity and returned a 'Authorization Code'.\n\nNow the backend would exchange this code for a token.");
-      }, 2000);
-    };
-  
-    return (
-      <div>
-        <h2>OAuth 2.0 Flow</h2>
-        <p>Click to start the 'Consent Screen' flow with Google.</p>
+      {!user ? (
         <button 
-          onClick={handleGoogle}
-          style={{background: 'white', color:'#444', display: 'flex', alignItems: 'center', gap: '10px', margin: 'auto'}}
-        >          
+          onClick={handleGoogleLogin}
+          style={{background: 'white', color:'#444', display: 'flex', alignItems: 'center', gap: '10px', margin: 'auto', padding: '10px 20px', borderRadius: '5px', border: '1px solid #ccc', cursor: 'pointer'}}
+        >
+          <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="20" alt="G" />
           Sign in with Google
         </button>
-      </div>
-    );
-  };
-  
-  export default OAuth;
+      ) : (
+        <div style={{marginTop: '20px'}}>
+          <img src={user.photoURL} alt="Avatar" style={{borderRadius: '50%', width: '80px'}} />
+          <h3>Welcome, {user.displayName}</h3>
+          <p>Email verified: {user.email}</p>
+          <p style={{fontSize: '12px', color: '#888'}}>UID: {user.uid}</p>
+          <button onClick={handleLogout} style={{background: '#d32f2f', color: 'white', border: 'none', padding: '10px', borderRadius: '5px', marginTop: '10px', cursor: 'pointer'}}>Log out</button>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default OAuth;
