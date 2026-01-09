@@ -1,43 +1,66 @@
-# Laboratorio de Conceptos Web Modernos
-### Programación Web - Universidad Central del Ecuador (UCE)
+# Modern Web Concepts Lab
+### Web Programming - Universidad Central del Ecuador (UCE)
 
-Este proyecto es una aplicación desarrollada en **Vite + React** que demuestra la implementación práctica y teórica de arquitecturas web modernas.
+This project is a small Vite + React application created to demonstrate practical and theoretical implementations of modern web architectures.
 
-## 🚀 Tecnologías y Conceptos Abordados
+## 🚀 Technologies & Concepts Covered
 
-El proyecto implementa una navegación SPA (Single Page Application) para demostrar los siguientes módulos:
+The app is a Single Page Application (SPA) showcasing the following modules and concepts:
 
-1.  **JWT (JSON Web Token):**
-    * Simulación de generación de tokens (Header, Payload, Signature).
-    * Implementación de flujo de Autenticación y Autorización.
-    * Manejo de **Refresh Tokens** y expiración de sesión.
+1. **JWT (JSON Web Token)**
+   - Simulation of token creation (Header, Payload, Signature).
+   - Authentication and authorization flows.
+   - Handling refresh tokens and session expiration.
 
-2.  **OAuth 2.0:**
-    * Implementación del flujo de "Consent Screen" simulado con Google.
-    * Demostración de delegación de autenticación.
+2. **OAuth 2.0**
+   - Simulated consent screen flow (example with Google).
+   - Demonstration of delegated authentication.
 
-3.  **Headless CMS & BaaS (Jamstack):**
-    * Conceptos de desacople Frontend/Backend.
-    * Consumo de APIs externas (simulando **Strapi** o **Firebase**) usando `fetch`.
+3. **Headless CMS & BaaS (Jamstack)**
+   - Decoupling frontend and backend concepts.
+   - Consuming external APIs (simulating Strapi or Firebase) using `fetch`.
 
-4.  **Pasarelas de Pago (Stripe):**
-    * Simulación del flujo de tokenización de tarjetas (PCI Compliance).
-    * Comunicación asíncrona cliente-pasarela.
+4. **Payment Gateways (Stripe)**
+   - Simulated card tokenization flow (PCI compliance concepts).
+   - Asynchronous client-to-gateway communication.
 
-## 🛠️ Instalación y Ejecución
+## 🛠️ Installation & Run
 
-1.  Clonar el repositorio:
-    git clone https://github.com/LizPillajo/JamStack_JWT_Stripe_OAuth.git
+1. Clone the repository:
 
-2.  Instalar dependencias:
-    npm install
+```bash
+git clone https://github.com/LizPillajo/JamStack_JWT_Stripe_OAuth.git
+cd JamStack_JWT_Stripe_OAuth
+```
 
-3.  Correr el servidor de desarrollo:
-    npm run dev
+2. Install dependencies:
 
+```bash
+npm install
+```
 
-## 📂 Estructura del Proyecto
+3. Run the development server:
 
-El código está organizado modularmente:
-* `/src/pages`: Contiene los componentes de cada ejercicio (Jwt.jsx, OAuth.jsx, etc.).
-* `/src/App.jsx`: Manejo de rutas y navegación.
+```bash
+npm run dev
+```
+
+Open the app at the address shown by Vite (usually http://localhost:5173).
+
+## 📂 Project Structure
+
+- `src/pages` : Components for each exercise (`Jwt.jsx`, `OAuth.jsx`, etc.)
+- `src/App.jsx` : Routes and navigation
+- `src/main.jsx` : App entry
+- `index.html` and `public/` : Static files
+
+## 🔧 Available Scripts
+
+- `npm run dev` : Start development server
+- `npm run build` : Build production bundle
+- `npm run serve` : Serve production build locally (if configured)
+
+## 📝 Notes / Improvements
+
+- This repository simulates flows and does not perform real authentication with third-party providers unless you integrate real credentials and backend services.
+- Replace simulated APIs with real services (Strapi, Firebase, or your own backend) to test fully.
